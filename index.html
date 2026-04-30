@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Today App MVP</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Today</h1>
+    <p id="dateLabel"></p>
+  </header>
+
+  <main>
+    <section id="ritualCard" class="card">
+      <h2>Morning Ritual</h2>
+      <label>Ritual start time <input type="time" id="ritualTime" /></label>
+      <div class="row">
+        <input id="taskInput" placeholder="Add a task for today" />
+        <button id="addTaskBtn">Add</button>
+      </div>
+      <div class="row">
+        <input id="expressTaskInput" placeholder="Express mode: one non-negotiable task" />
+        <button id="expressBtn">Unlock Express</button>
+      </div>
+      <p class="hint">If only one task exists, app is in Express Mode until you add more.</p>
+    </section>
+
+    <section class="card">
+      <h2>Today List</h2>
+      <ul id="taskList"></ul>
+      <div class="row">
+        <button id="prioritizeBtn">AI Prioritize</button>
+        <button id="finishDayBtn">Finish Day</button>
+      </div>
+      <p id="dailyWin" class="success hidden">🎉 Daily Win! You completed your list.</p>
+    </section>
+
+    <section class="card">
+      <h2>Archive</h2>
+      <input id="searchInput" placeholder="Search archive" />
+      <div id="archiveList"></div>
+    </section>
+  </main>
+
+  <template id="taskTemplate">
+    <li class="task-item">
+      <label><input type="checkbox" class="complete" /> <span class="title"></span></label>
+      <small class="meta"></small>
+      <div class="task-actions">
+        <button class="roll">Rollover</button>
+        <button class="split">Split</button>
+        <button class="del">Delete</button>
+      </div>
+    </li>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
